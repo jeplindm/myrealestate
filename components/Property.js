@@ -5,7 +5,17 @@ import { FaBed, FaBath } from "react-icons/fa";
 import millify from "millify";
 
 export default function Property({
-  property: { title, price, rooms, rentFrequency, isVerified, coverPhoto, area, baths },
+  property: {
+    title,
+    price,
+    rooms,
+    rentFrequency,
+    isVerified,
+    coverPhoto,
+    area,
+    baths,
+    agency,
+  },
 }) {
   return (
     <div className="p-5 hover:shadow-2xl hover:cursor-pointer hover:rounded-lg hover:scale-105 transition transform duration-200 ease-out">
@@ -19,22 +29,34 @@ export default function Property({
         />
       </div>
       <div className="w-full">
-        <h6 className="text-sm mt-1">
-          {title.length > 20 ? `${title.substring(0, 20)}...` : title}
-        </h6>
+        <div className="flex items-center justify-between mt-2">
+          <h6 className="text-md font-semibold">
+            {title.length > 25 ? `${title.substring(0, 25)}...` : title}
+          </h6>
+
+          <div className="relative h-6 w-6 border border-gray-300 rounded-full">
+            <Image
+              src={agency.logo.url}
+              alt="logo image"
+              layout="fill"
+              objectFit="fill"
+              className="rounded-full"
+            />
+          </div>
+        </div>
 
         <div className="flex justify-between items-center mt-1">
-          <span className="text-xs">{millify(area)} sqft</span>
+          <span className="text-sm">{millify(area)} sqft</span>
         </div>
 
         <div className="flex">
           <div className="flex items-center mr-2">
-            <span className="mr-2 text-xs">{rooms}</span>
+            <span className="mr-2 text-sm">{rooms}</span>
             <FaBed />
           </div>
           |
           <div className="ml-2 flex items-center">
-            <span className="mr-2 text-xs">{baths}</span>
+            <span className="mr-2 text-sm">{baths}</span>
             <FaBath />
           </div>
         </div>

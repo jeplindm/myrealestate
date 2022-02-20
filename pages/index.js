@@ -17,22 +17,20 @@ export default function Home({ propertiesForRent, propertiesForSale }) {
       <Banner />
 
       <main>
-        <div className="pt-4 px-6">
-          <h2 className="text-2xl font-bold text-center mb-2">
-            Rental Homes For Everyone
-          </h2>
-          <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 space-y-2">
+        <div className="mt-4 px-6">
+          <h2 className="text-2xl font-bold text-center">Rental Homes For Everyone</h2>
+          <section className="mt-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 space-y-2">
             {propertiesForRent?.map((property) => (
               <Property key={property.id} property={property} />
             ))}
           </section>
         </div>
 
-        <div className="pt-4">
-          <h2 className="text-2xl font-bold text-center mb-2">
+        <div className="mt-4 px-6">
+          <h2 className="text-2xl font-bold text-center">
             Find, Buy & Own Your Dream Home
           </h2>
-          <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 space-y-2">
+          <section className="mt-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 space-y-2">
             {propertiesForSale?.map((property) => (
               <Property key={property.id} property={property} />
             ))}
