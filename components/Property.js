@@ -3,6 +3,7 @@ import DefaultImage from "../public/image-not-found.png";
 import { GoVerified } from "react-icons/go";
 import { FaBed, FaBath } from "react-icons/fa";
 import millify from "millify";
+import { useRouter } from "next/router";
 
 export default function Property({
   property: {
@@ -15,10 +16,34 @@ export default function Property({
     area,
     baths,
     agency,
+    externalID,
   },
 }) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push({
+      pathname: "/property-detail",
+      query: {
+        id: externalID,
+        title,
+        price,
+        rooms,
+        rentFrequency,
+        isVerified,
+        coverPhoto,
+        area,
+        baths,
+        agency,
+      },
+    });
+  };
+
   return (
-    <div className="p-5 hover:shadow-2xl hover:cursor-pointer hover:rounded-lg hover:scale-105 transition transform duration-200 ease-out">
+    <div
+      onClick={handleClick}
+      className="p-5 hover:shadow-2xl hover:cursor-pointer hover:rounded-lg hover:scale-105 transition transform duration-200 ease-out"
+    >
       <div className="relative h-72">
         <Image
           src={coverPhoto ? coverPhoto.url : <DefaultImage />}
@@ -61,8 +86,8 @@ export default function Property({
           </div>
         </div>
 
-        <button className="w-full py-2 px-3 text-sm text-white bg-black font-bold button-2 text-center mt-1 rounded-lg">
-          USD {millify(price)} {rentFrequency && `/ ${rentFrequency}`}
+        <button className="w-full py-2 px-3 text-sm text-white bg-green-700 hover:bg-green-800 font-bold button-2 text-center mt-1 rounded-lg">
+          AED {millify(price)} {rentFrequency && `/ ${rentFrequency}`}
         </button>
         {isVerified && (
           <div className="flex justify-end items-center text-xs text-green-700 font-semibold mt-2">
