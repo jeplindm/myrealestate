@@ -32,14 +32,14 @@ const PropertyDetail = ({
     <div>
       <Navbar />
 
-      <main className="bg-gray-300 px-6 py-6">
+      <main className="bg-gray-100 px-6 py-6">
         <div className="bg-white shadow-2xl p-6 rounded-xl container mx-auto space-y-2">
-          <div className="flex items-center">
-            <h4 className="text-lg font-semibold">{title}</h4>
-            <span className="p-1 ml-2 bg-yellow-400 text-white font-light rounded-lg text-xs">
+          <div className="md:flex md:items-center">
+            <h4 className="text-sm md:text-lg font-semibold">{title}</h4>
+            <span className="mr-1 md:ml-2 p-1 bg-yellow-400 text-white font-light rounded-lg text-xs">
               {agency.product}
             </span>
-            <span className="ml-2 p-1 text-white bg-green-500 rounded-lg text-xs font-light">
+            <span className="md:ml-2 p-1 text-white bg-green-500 rounded-lg text-xs font-light">
               {purpose}
             </span>
           </div>
@@ -54,10 +54,10 @@ const PropertyDetail = ({
               />
             </div>
 
-            <h6 className="text-sm font-semibold ml-4">{agency.name}</h6>
+            <h6 className="text-xs md:text-sm font-semibold ml-4">{agency.name}</h6>
           </div>
 
-          <p className="flex items-center text-md md:text-sm">
+          <p className="flex items-center text-xs md:text-sm">
             <ImLocation />
             <span className="ml-1">{`${location[2].name}, ${location[1].name}`}</span>
           </p>
@@ -78,9 +78,9 @@ const PropertyDetail = ({
             />
           </div>
 
-          <p className="text-sm text-justify">{description}</p>
+          <p className="text-xs md:text-sm text-justify">{description}</p>
 
-          <div className="flex text-md justify-end">
+          <div className="flex text-xs md:text-base justify-end">
             <div className="flex items-center mr-2">
               <span className="mr-2">{rooms}</span>
               <FaBed />
@@ -98,16 +98,20 @@ const PropertyDetail = ({
           </div>
 
           <div className="flex flex-col items-end">
-            <p className="mb-2 text-2xl font-bold text-green-700">AED {millify(price)}</p>
-            <button className="px-6 py-2 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-lg w-48 text-center">
+            <p className="mb-2 text-lg md:text-2xl font-bold text-green-700">
+              AED {millify(price)}
+            </p>
+            <button className="text-sm px-4 py-2 md:text-base md:px-6 md:py-2 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-lg w-44 text-center">
               {purpose === "for-rent" ? "Rent" : "Buy"}
             </button>
           </div>
         </div>
 
-        <div className="container mx-auto bg-white px-6 py-2 shadow-2xl rounded-xl space-y-2 mt-4">
-          <h6 className="font-semibold text-md text-center">Contact Details</h6>
-          <div className="flex justify-evenly items-center text-md">
+        <div className="container mx-auto bg-white px-6 py-2 shadow-2xl rounded-xl space-y-2 mt-4 w-full">
+          <h6 className="text-sm md:text-lg text-center font-semibold">
+            Contact Details
+          </h6>
+          <div className="text-xs md:flex md:justify-evenly md:items-center md:text-base">
             <p className="flex items-center">
               <GoPerson />
               <span className="ml-2">{contactName}</span>
@@ -130,8 +134,8 @@ const PropertyDetail = ({
         </div>
 
         <div className="container mx-auto bg-white p-6 shadow-2xl rounded-xl space-y-2 mt-4">
-          <h6 className="text-lg font-semibold">Location Info</h6>
-          <p className="text-sm">{`${location[2].name}, ${location[1].name}`}</p>
+          <h6 className="text-sm md:text-lg font-semibold">Location Info</h6>
+          <p className="text-xs md:text-sm">{`${location[2].name}, ${location[1].name}`}</p>
 
           <div className="h-[300px]">
             <Map geography={geography} agency={agency} />
