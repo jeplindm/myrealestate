@@ -101,7 +101,7 @@ const PropertyDetail = ({
             <p className="mb-2 text-lg md:text-2xl font-bold text-green-700">
               AED {millify(price)}
             </p>
-            <button className="text-sm px-4 py-2 md:text-base md:px-6 md:py-2 bg-green-700 hover:bg-green-800 text-white font-semibold rounded-lg w-44 text-center">
+            <button className="text-sm px-4 py-2 md:text-base md:px-6 md:py-2 bg-black hover:opacity-80 text-white font-semibold rounded w-44 text-center">
               {purpose === "for-rent" ? "Rent" : "Buy"}
             </button>
           </div>

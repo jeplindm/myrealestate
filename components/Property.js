@@ -86,7 +86,7 @@ export default function Property({
           </div>
         </div>
 
-        <button className="w-full py-2 px-3 text-sm text-white bg-green-700 hover:bg-green-800 font-bold button-2 text-center mt-1 rounded-lg">
+        <button className="w-full py-2 px-3 text-sm text-white bg-black hover:opacity-80 font-semibold button-2 text-center mt-1 rounded">
           AED {millify(price)} {rentFrequency && `/ ${rentFrequency}`}
         </button>
         {isVerified && (
