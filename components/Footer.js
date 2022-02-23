@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="px-32 py-14 grid grid-cols-1 gap-y-10 md:grid-cols-4 text-white bg-black mt-8">
+    <footer className="md:fixed md:bottom-0 md:w-full px-32 py-14 grid grid-cols-1 gap-y-10 md:grid-cols-4 text-white bg-black mt-8">
       <div className="space-y-4 text-sm">
         <h5 className="text-md font-bold">ABOUT</h5>
         <p>How My Real Estate works</p>
